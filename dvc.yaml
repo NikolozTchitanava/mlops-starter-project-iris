@@ -17,4 +17,4 @@ stages:
     - src/train.py
     outs:
     - metrics.csv
-    - models/model.pkl
+    - models/model.joblib
