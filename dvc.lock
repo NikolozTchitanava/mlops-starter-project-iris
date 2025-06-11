@@ -1,0 +1,25 @@
+schema: '2.0'
+stages:
+  load_data:
+    cmd: python src/load_data.py
+    outs:
+    - path: data/features_iris.csv
+      hash: md5
+      md5: 10f5f61b137fa708403ea5c480386bfe
+      size: 2908
+  split_data:
+    cmd: python src/split_dataset.py --test_size 0.2
+    deps:
+    - path: data/features_iris.csv
+      hash: md5
+      md5: 10f5f61b137fa708403ea5c480386bfe
+      size: 2908
+    outs:
+    - path: data/test.csv
+      hash: md5
+      md5: 5c1a8d346764a394a3fbe0571d2abb91
+      size: 628
+    - path: data/train.csv
+      hash: md5
+      md5: 10d7f41ab218de6664e1af17713d58a9
+      size: 2338
